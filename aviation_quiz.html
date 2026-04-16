@@ -1,0 +1,1055 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" />
+  <title>航空用语略称练习</title>
+  <style>
+    :root {
+      --bg:#f7fbff; --card:#ffffff; --text:#16324f; --muted:#6b7c93;
+      --brand:#2bbf6a; --brand2:#4ac7ff; --ok:#e9fbef; --okText:#15713c;
+      --bad:#ffeef0; --badText:#b4232f; --border:#e7eef7;
+    }
+    * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+    body { margin:0; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Noto Sans SC','Hiragino Sans','Yu Gothic',sans-serif; background:var(--bg); color:var(--text); }
+    .app { max-width: 430px; margin: 0 auto; min-height:100vh; padding:16px 14px 24px; }
+    .card { background:var(--card); border:1px solid var(--border); border-radius:22px; box-shadow:0 10px 28px rgba(31,83,143,.08); padding:16px; }
+    .hero { color:#fff; background:linear-gradient(135deg,var(--brand),var(--brand2)); border:none; }
+    .title { font-size:24px; font-weight:800; margin:0; }
+    .sub { font-size:13px; color:var(--muted); margin-top:4px; }
+    .btn { width:100%; border:none; border-radius:16px; padding:14px 12px; font-size:16px; font-weight:800; cursor:pointer; }
+    .btn-primary { background:var(--brand); color:#fff; }
+    .btn-dark { background:#182a3a; color:#fff; }
+    .btn-light { background:#fff; color:#223548; border:1px solid var(--border); }
+    .btn-danger { background:#fff; color:#b4232f; border:1px solid #ffd2d8; }
+    .stack > * + * { margin-top:10px; }
+    .page { display:none; animation:fade .18s ease; }
+    .page.active { display:block; }
+    @keyframes fade { from {opacity:.2; transform:translateY(3px)} to {opacity:1; transform:none} }
+    .row { display:flex; justify-content:space-between; align-items:center; gap:8px; }
+    .progress { height:10px; border-radius:999px; background:#eaf0f8; overflow:hidden; }
+    .bar { height:100%; width:0; background:linear-gradient(90deg,var(--brand),var(--brand2)); transition:.25s; }
+    .jp { font-size:32px; line-height:1.2; margin:10px 0 0; font-weight:900; }
+    .pill { display:inline-block; background:#eef8ff; color:#2f5b81; padding:4px 10px; border-radius:999px; font-size:12px; font-weight:700; }
+    .input { width:100%; height:54px; border-radius:15px; border:1px solid var(--border); padding:0 14px; font-size:20px; font-weight:800; text-transform:uppercase; }
+    .feedback { border-radius:14px; padding:12px; font-size:14px; margin-top:10px; }
+    .ok { background:var(--ok); color:var(--okText); }
+    .bad { background:var(--bad); color:var(--badText); }
+    .muted { color:var(--muted); }
+    .small { font-size:13px; }
+    .list-item { padding:12px; border-radius:14px; border:1px solid var(--border); background:#fff; }
+    .score { font-size:40px; font-weight:900; color:var(--brand); margin:4px 0; }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <section id="home" class="page active stack"></section>
+    <section id="quiz" class="page stack"></section>
+    <section id="result" class="page stack"></section>
+    <section id="wrong" class="page stack"></section>
+    <section id="category" class="page stack"></section>
+  </div>
+
+  <script id="questions-data" type="application/json">[
+  {
+    "id": 1,
+    "abbreviation": "ACL",
+    "japanese": "最大搭載許容重量",
+    "english": "Allowable Cabin Load",
+    "category": "operation_handling",
+    "subcategory": "load",
+    "source_page": "operation_handling"
+  },
+  {
+    "id": 2,
+    "abbreviation": "ARR・ARV",
+    "japanese": "到着",
+    "english": "Arrival",
+    "category": "operation_handling",
+    "subcategory": "flight_phase",
+    "source_page": "operation_handling"
+  },
+  {
+    "id": 3,
+    "abbreviation": "ATC",
+    "japanese": "航空交通管制",
+    "english": "Air Traffic Control",
+    "category": "airport_operation",
+    "subcategory": "control",
+    "source_page": "operation_handling"
+  },
+  {
+    "id": 4,
+    "abbreviation": "ATA",
+    "japanese": "実際の到着時刻",
+    "english": "Actual Time of Arrival",
+    "category": "operation_handling",
+    "subcategory": "schedule",
+    "source_page": "operation_handling"
+  },
+  {
+    "id": 5,
+    "abbreviation": "ATB",
+    "japanese": "離陸後の引き返し",
+    "english": "Air Turn Back",
+    "category": "operation_handling",
+    "subcategory": "irregular",
+    "source_page": "operation_handling"
+  },
+  {
+    "id": 6,
+    "abbreviation": "ATD",
+    "japanese": "実際の出発時刻",
+    "english": "Actual Time of Departure",
+    "category": "operation_handling",
+    "subcategory": "schedule",
+    "source_page": "operation_handling"
+  },
+  {
+    "id": 7,
+    "abbreviation": "BAG・BGE",
+    "japanese": "手荷物",
+    "english": "Baggage",
+    "category": "passenger_service",
+    "subcategory": "baggage",
+    "source_page": "operation_handling"
+  },
+  {
+    "id": 8,
+    "abbreviation": "BDG・BOD",
+    "japanese": "搭乗",
+    "english": "Boarding",
+    "category": "passenger_service",
+    "subcategory": "boarding",
+    "source_page": "operation_handling"
+  },
+  {
+    "id": 9,
+    "abbreviation": "BKG",
+    "japanese": "予約数",
+    "english": "Booking",
+    "category": "operation_handling",
+    "subcategory": "data",
+    "source_page": "operation_handling"
+  },
+  {
+    "id": 10,
+    "abbreviation": "B/I",
+    "japanese": "ブロックイン",
+    "english": "Block in",
+    "category": "operation_handling",
+    "subcategory": "flight_phase",
+    "source_page": "operation_handling"
+  },
+  {
+    "id": 11,
+    "abbreviation": "B/O",
+    "japanese": "ブロックアウト",
+    "english": "Block Out",
+    "category": "operation_handling",
+    "subcategory": "flight_phase",
+    "source_page": "operation_handling"
+  },
+  {
+    "id": 12,
+    "abbreviation": "BULK",
+    "japanese": "大型預入手荷物",
+    "english": "BULKY BAGGAGE",
+    "category": "passenger_service",
+    "subcategory": "baggage",
+    "source_page": "operation_handling"
+  },
+  {
+    "id": 13,
+    "abbreviation": "CHG",
+    "japanese": "変更",
+    "english": "Change",
+    "category": "operation_handling",
+    "subcategory": "general",
+    "source_page": "operation_handling"
+  },
+  {
+    "id": 14,
+    "abbreviation": "CKI・CKIN",
+    "japanese": "搭乗手続き",
+    "english": "Check In",
+    "category": "passenger_service",
+    "subcategory": "boarding",
+    "source_page": "operation_handling"
+  },
+  {
+    "id": 15,
+    "abbreviation": "CNL",
+    "japanese": "欠航",
+    "english": "Cancel",
+    "category": "operation_handling",
+    "subcategory": "irregular",
+    "source_page": "operation_handling"
+  },
+  {
+    "id": 16,
+    "abbreviation": "CONX",
+    "japanese": "接続",
+    "english": "Connection",
+    "category": "passenger_service",
+    "subcategory": "transit",
+    "source_page": "operation_handling"
+  },
+  {
+    "id": 17,
+    "abbreviation": "CBBG",
+    "japanese": "大型手荷物・機内持ち込み",
+    "english": "CABIN BAGGAGE",
+    "category": "passenger_service",
+    "subcategory": "baggage",
+    "source_page": "operation_handling"
+  },
+  {
+    "id": 18,
+    "abbreviation": "DEP",
+    "japanese": "出発",
+    "english": "Departure",
+    "category": "operation_handling",
+    "subcategory": "flight_phase",
+    "source_page": "operation_handling"
+  },
+  {
+    "id": 19,
+    "abbreviation": "DST",
+    "japanese": "目的地",
+    "english": "Destination",
+    "category": "operation_handling",
+    "subcategory": "schedule",
+    "source_page": "operation_handling"
+  },
+  {
+    "id": 20,
+    "abbreviation": "DLA・DLY",
+    "japanese": "遅延",
+    "english": "Delay",
+    "category": "operation_handling",
+    "subcategory": "irregular",
+    "source_page": "operation_handling"
+  },
+  {
+    "id": 21,
+    "abbreviation": "DIV・DVT",
+    "japanese": "他空港への臨時着陸",
+    "english": "Divert",
+    "category": "operation_handling",
+    "subcategory": "irregular",
+    "source_page": "operation_handling"
+  },
+  {
+    "id": 22,
+    "abbreviation": "ETA",
+    "japanese": "到着予定時刻",
+    "english": "Estimated Time of Arrival",
+    "category": "operation_handling",
+    "subcategory": "schedule",
+    "source_page": "operation_handling"
+  },
+  {
+    "id": 23,
+    "abbreviation": "ETD",
+    "japanese": "出発予定時刻",
+    "english": "Estimated Time of Departure",
+    "category": "operation_handling",
+    "subcategory": "schedule",
+    "source_page": "operation_handling"
+  },
+  {
+    "id": 24,
+    "abbreviation": "EQP",
+    "japanese": "出発準備",
+    "english": "Equipment",
+    "category": "operation_handling",
+    "subcategory": "maintenance",
+    "source_page": "operation_handling"
+  },
+  {
+    "id": 25,
+    "abbreviation": "EXST",
+    "japanese": "エクストラシート",
+    "english": "EXTRA SEAT",
+    "category": "passenger_service",
+    "subcategory": "seat",
+    "source_page": "operation_handling"
+  },
+  {
+    "id": 26,
+    "abbreviation": "FLT",
+    "japanese": "便",
+    "english": "Flight",
+    "category": "operation_handling",
+    "subcategory": "general",
+    "source_page": "operation_handling"
+  },
+  {
+    "id": 27,
+    "abbreviation": "GTB",
+    "japanese": "ブロックアウト後の引き返し",
+    "english": "Ground Turn Back",
+    "category": "operation_handling",
+    "subcategory": "irregular",
+    "source_page": "operation_handling"
+  },
+  {
+    "id": 28,
+    "abbreviation": "INFO",
+    "japanese": "案内",
+    "english": "Information",
+    "category": "passenger_service",
+    "subcategory": "general",
+    "source_page": "operation_handling"
+  },
+  {
+    "id": 29,
+    "abbreviation": "IRGL・IRR",
+    "japanese": "通常でないこと",
+    "english": "Irregularity",
+    "category": "operation_handling",
+    "subcategory": "irregular",
+    "source_page": "operation_handling"
+  },
+  {
+    "id": 30,
+    "abbreviation": "L/A",
+    "japanese": "使用機材到着遅れ",
+    "english": "Late Arrival",
+    "category": "operation_handling",
+    "subcategory": "irregular",
+    "source_page": "operation_handling"
+  },
+  {
+    "id": 31,
+    "abbreviation": "MCT",
+    "japanese": "最小接続時間",
+    "english": "Minimum Connecting Time",
+    "category": "operation_handling",
+    "subcategory": "schedule",
+    "source_page": "operation_handling"
+  },
+  {
+    "id": 32,
+    "abbreviation": "MX",
+    "japanese": "機材整備",
+    "english": "Maintenance Trouble",
+    "category": "operation_handling",
+    "subcategory": "maintenance",
+    "source_page": "operation_handling"
+  },
+  {
+    "id": 33,
+    "abbreviation": "NIL",
+    "japanese": "なし",
+    "english": "None",
+    "category": "operation_handling",
+    "subcategory": "general",
+    "source_page": "operation_handling"
+  },
+  {
+    "id": 34,
+    "abbreviation": "ARMD",
+    "japanese": "職務上の武器携帯者",
+    "english": "Armed Passenger",
+    "category": "special_assistance",
+    "subcategory": "security",
+    "source_page": "passenger_needs_assistance"
+  },
+  {
+    "id": 35,
+    "abbreviation": "AT",
+    "japanese": "付添者",
+    "english": "Attendant",
+    "category": "special_assistance",
+    "subcategory": "care",
+    "source_page": "passenger_needs_assistance"
+  },
+  {
+    "id": 36,
+    "abbreviation": "BLND",
+    "japanese": "視覚障がい旅客",
+    "english": "Blind Passengers",
+    "category": "special_assistance",
+    "subcategory": "disability",
+    "source_page": "passenger_needs_assistance"
+  },
+  {
+    "id": 37,
+    "abbreviation": "BSCT",
+    "japanese": "幼児用ベッド",
+    "english": "Bassinet",
+    "category": "special_assistance",
+    "subcategory": "infant",
+    "source_page": "passenger_needs_assistance"
+  },
+  {
+    "id": 38,
+    "abbreviation": "CHILD",
+    "japanese": "小児",
+    "english": "Child",
+    "category": "passenger_service",
+    "subcategory": "category",
+    "source_page": "passenger_needs_assistance"
+  },
+  {
+    "id": 39,
+    "abbreviation": "CHST",
+    "japanese": "チャイルドシート",
+    "english": "Child seat",
+    "category": "special_assistance",
+    "subcategory": "infant",
+    "source_page": "passenger_needs_assistance"
+  },
+  {
+    "id": 40,
+    "abbreviation": "DEAF",
+    "japanese": "聴覚障がい旅客",
+    "english": "Deaf Passengers",
+    "category": "special_assistance",
+    "subcategory": "disability",
+    "source_page": "passenger_needs_assistance"
+  },
+  {
+    "id": 41,
+    "abbreviation": "DEPA",
+    "japanese": "監視員付強制送還者",
+    "english": "Deportee-Accompanied by an Escort",
+    "category": "special_assistance",
+    "subcategory": "security",
+    "source_page": "passenger_needs_assistance"
+  },
+  {
+    "id": 42,
+    "abbreviation": "DEPU",
+    "japanese": "監視員なし強制送還者",
+    "english": "Deportee-Unaccompanied",
+    "category": "special_assistance",
+    "subcategory": "security",
+    "source_page": "passenger_needs_assistance"
+  },
+  {
+    "id": 43,
+    "abbreviation": "DPNA",
+    "japanese": "知的障がい旅客",
+    "english": "Disabled passengers w/ intellectual disability",
+    "category": "special_assistance",
+    "subcategory": "disability",
+    "source_page": "passenger_needs_assistance"
+  },
+  {
+    "id": 44,
+    "abbreviation": "EXMO(E)",
+    "japanese": "妊婦",
+    "english": "Expectant mother",
+    "category": "special_assistance",
+    "subcategory": "medical",
+    "source_page": "passenger_needs_assistance"
+  },
+  {
+    "id": 45,
+    "abbreviation": "ESAN",
+    "japanese": "アラート犬・サイキアトリックサービス犬",
+    "english": "Emotional Support Animal",
+    "category": "special_assistance",
+    "subcategory": "animal",
+    "source_page": "passenger_needs_assistance"
+  },
+  {
+    "id": 46,
+    "abbreviation": "INAD",
+    "japanese": "上陸禁止者",
+    "english": "Inadmissible Passengers",
+    "category": "special_assistance",
+    "subcategory": "security",
+    "source_page": "passenger_needs_assistance"
+  },
+  {
+    "id": 47,
+    "abbreviation": "INFT",
+    "japanese": "幼児",
+    "english": "Infant",
+    "category": "passenger_service",
+    "subcategory": "category",
+    "source_page": "passenger_needs_assistance"
+  },
+  {
+    "id": 48,
+    "abbreviation": "MAAA",
+    "japanese": "アテンドサービス（到着地）",
+    "english": "Attend Service Arrival",
+    "category": "special_assistance",
+    "subcategory": "care",
+    "source_page": "passenger_needs_assistance"
+  },
+  {
+    "id": 49,
+    "abbreviation": "MAAD",
+    "japanese": "アテンドサービス（出発地）",
+    "english": "Attend Service Departure",
+    "category": "special_assistance",
+    "subcategory": "care",
+    "source_page": "passenger_needs_assistance"
+  },
+  {
+    "id": 50,
+    "abbreviation": "MAAT",
+    "japanese": "アテンドサービス（乗継地）",
+    "english": "Attend Service Transit",
+    "category": "special_assistance",
+    "subcategory": "care",
+    "source_page": "passenger_needs_assistance"
+  },
+  {
+    "id": 51,
+    "abbreviation": "MEDA",
+    "japanese": "傷病旅客",
+    "english": "Medical Case",
+    "category": "special_assistance",
+    "subcategory": "medical",
+    "source_page": "passenger_needs_assistance"
+  },
+  {
+    "id": 52,
+    "abbreviation": "PRIS",
+    "japanese": "被疑者",
+    "english": "Person in Lawful Custody",
+    "category": "special_assistance",
+    "subcategory": "security",
+    "source_page": "passenger_needs_assistance"
+  },
+  {
+    "id": 53,
+    "abbreviation": "SVAN",
+    "japanese": "盲導犬・聴導犬・介助犬",
+    "english": "Service Animal",
+    "category": "special_assistance",
+    "subcategory": "animal",
+    "source_page": "passenger_needs_assistance"
+  },
+  {
+    "id": 54,
+    "abbreviation": "STCR",
+    "japanese": "ストレッチャー旅客",
+    "english": "Stretcher Passengers",
+    "category": "special_assistance",
+    "subcategory": "medical",
+    "source_page": "passenger_needs_assistance"
+  },
+  {
+    "id": 55,
+    "abbreviation": "TWOV",
+    "japanese": "無査証通過",
+    "english": "Transit without Visa",
+    "category": "special_assistance",
+    "subcategory": "security",
+    "source_page": "passenger_needs_assistance"
+  },
+  {
+    "id": 56,
+    "abbreviation": "UM・UMNR",
+    "japanese": "単独搭乗する小児",
+    "english": "Unaccompanied minor",
+    "category": "special_assistance",
+    "subcategory": "care",
+    "source_page": "passenger_needs_assistance"
+  },
+  {
+    "id": 57,
+    "abbreviation": "WCHC",
+    "japanese": "歩行障がい旅客（車椅子固定）",
+    "english": "Wheelchair for Cabin Seat",
+    "category": "special_assistance",
+    "subcategory": "wheelchair",
+    "source_page": "passenger_needs_assistance"
+  },
+  {
+    "id": 58,
+    "abbreviation": "WCHS",
+    "japanese": "歩行困難旅客（階段昇降不可）",
+    "english": "Wheelchair for Steps",
+    "category": "special_assistance",
+    "subcategory": "wheelchair",
+    "source_page": "passenger_needs_assistance"
+  },
+  {
+    "id": 59,
+    "abbreviation": "WCHR",
+    "japanese": "軽度の歩行困難旅客",
+    "english": "Wheelchair for Ramp",
+    "category": "special_assistance",
+    "subcategory": "wheelchair",
+    "source_page": "passenger_needs_assistance"
+  },
+  {
+    "id": 60,
+    "abbreviation": "WCOB",
+    "japanese": "機内貸し出し車椅子",
+    "english": "ON-BOARD WHEELCHAIR",
+    "category": "special_assistance",
+    "subcategory": "wheelchair",
+    "source_page": "passenger_needs_assistance"
+  },
+  {
+    "id": 61,
+    "abbreviation": "WCBD",
+    "japanese": "電動車椅子（ドライバッテリー）",
+    "english": "WHEELCHAIR DRY CELL BATTERY",
+    "category": "special_assistance",
+    "subcategory": "wheelchair",
+    "source_page": "passenger_needs_assistance"
+  },
+  {
+    "id": 62,
+    "abbreviation": "WCBW",
+    "japanese": "電動車椅子（ウェットバッテリー）",
+    "english": "WHEELCHAIR WET BATTERY",
+    "category": "special_assistance",
+    "subcategory": "wheelchair",
+    "source_page": "passenger_needs_assistance"
+  },
+  {
+    "id": 63,
+    "abbreviation": "WCLB",
+    "japanese": "電動車椅子（リチウムバッテリー）",
+    "english": "WHEELCHAIR LITHIUM ION BATTERY",
+    "category": "special_assistance",
+    "subcategory": "wheelchair",
+    "source_page": "passenger_needs_assistance"
+  },
+  {
+    "id": 64,
+    "abbreviation": "WCMP",
+    "japanese": "手动式車椅子",
+    "english": "WHEELCHAIR MANUAL POWER",
+    "category": "special_assistance",
+    "subcategory": "wheelchair",
+    "source_page": "passenger_needs_assistance"
+  },
+  {
+    "id": 65,
+    "abbreviation": "APO",
+    "japanese": "空港支店",
+    "english": "Airport Office",
+    "category": "airport_operation",
+    "subcategory": "office",
+    "source_page": "airport_terms"
+  },
+  {
+    "id": 66,
+    "abbreviation": "ATML",
+    "japanese": "28品目アレルゲン対応食",
+    "english": "28 ALLERGEN FREE MEAL",
+    "category": "passenger_service",
+    "subcategory": "meal",
+    "source_page": "airport_terms"
+  },
+  {
+    "id": 67,
+    "abbreviation": "BBML",
+    "japanese": "ベビーミール",
+    "english": "BABY MEAL",
+    "category": "passenger_service",
+    "subcategory": "meal",
+    "source_page": "airport_terms"
+  },
+  {
+    "id": 68,
+    "abbreviation": "CHML",
+    "japanese": "チャイルドミール",
+    "english": "CHILD MEAL",
+    "category": "passenger_service",
+    "subcategory": "meal",
+    "source_page": "airport_terms"
+  },
+  {
+    "id": 69,
+    "abbreviation": "MOML",
+    "japanese": "イスラム教徒ミール",
+    "english": "MOSLEM MEAL",
+    "category": "passenger_service",
+    "subcategory": "meal",
+    "source_page": "airport_terms"
+  },
+  {
+    "id": 70,
+    "abbreviation": "SPML",
+    "japanese": "特別食",
+    "english": "SPECIAL MEAL",
+    "category": "passenger_service",
+    "subcategory": "meal",
+    "source_page": "airport_terms"
+  },
+  {
+    "id": 71,
+    "abbreviation": "AVIH",
+    "japanese": "受託手荷物扱いのペット",
+    "english": "ANIMAL IN HOLD",
+    "category": "passenger_service",
+    "subcategory": "baggage",
+    "source_page": "airport_terms"
+  },
+  {
+    "id": 72,
+    "abbreviation": "CA",
+    "japanese": "客室乗務員",
+    "english": "Cabin Attendant",
+    "category": "operation_handling",
+    "subcategory": "staff",
+    "source_page": "airport_terms"
+  },
+  {
+    "id": 73,
+    "abbreviation": "CAB",
+    "japanese": "国土交通省航空局",
+    "english": "Civil Aviation Bureau",
+    "category": "airport_operation",
+    "subcategory": "government",
+    "source_page": "airport_terms"
+  },
+  {
+    "id": 74,
+    "abbreviation": "CIQ",
+    "japanese": "税関・出入国審査・検疫",
+    "english": "Customs, Immigration, Quarantine",
+    "category": "security_immigration",
+    "subcategory": "international",
+    "source_page": "airport_terms"
+  },
+  {
+    "id": 75,
+    "abbreviation": "CREW",
+    "japanese": "乗員",
+    "english": "Crew",
+    "category": "operation_handling",
+    "subcategory": "staff",
+    "source_page": "airport_terms"
+  },
+  {
+    "id": 76,
+    "abbreviation": "CTO",
+    "japanese": "市内支店",
+    "english": "City Office",
+    "category": "airport_operation",
+    "subcategory": "office",
+    "source_page": "airport_terms"
+  },
+  {
+    "id": 77,
+    "abbreviation": "PBB",
+    "japanese": "ボーディング・ブリッジ",
+    "english": "Passenger Boarding Bridge",
+    "category": "airport_operation",
+    "subcategory": "facility",
+    "source_page": "airport_terms"
+  },
+  {
+    "id": 78,
+    "abbreviation": "PBL",
+    "japanese": "歩行障害者用搭乗リフト",
+    "english": "Passenger Boarding Lift",
+    "category": "airport_operation",
+    "subcategory": "facility",
+    "source_page": "airport_terms"
+  },
+  {
+    "id": 79,
+    "abbreviation": "RF・RFD",
+    "japanese": "払い戻し",
+    "english": "Refund",
+    "category": "operation_handling",
+    "subcategory": "financial",
+    "source_page": "airport_terms"
+  },
+  {
+    "id": 80,
+    "abbreviation": "DIA",
+    "japanese": "ダイヤモンドサービスメンバー",
+    "english": "Diamond Service Member",
+    "category": "membership",
+    "subcategory": "ana_premium",
+    "source_page": "special_service_passenger"
+  },
+  {
+    "id": 81,
+    "abbreviation": "PLT",
+    "japanese": "プラチナサービスメンバー",
+    "english": "Platinum Service Member",
+    "category": "membership",
+    "subcategory": "ana_premium",
+    "source_page": "special_service_passenger"
+  },
+  {
+    "id": 82,
+    "abbreviation": "BRZ",
+    "japanese": "ブロンズサービスメンバー",
+    "english": "Bronze Service Member",
+    "category": "membership",
+    "subcategory": "ana_premium",
+    "source_page": "special_service_passenger"
+  },
+  {
+    "id": 83,
+    "abbreviation": "SFC",
+    "japanese": "スーパーフライヤーズカードメンバー",
+    "english": "Super Flyers Card Member",
+    "category": "membership",
+    "subcategory": "ana_premium",
+    "source_page": "special_service_passenger"
+  },
+  {
+    "id": 84,
+    "abbreviation": "SAG",
+    "japanese": "スターアライアンスゴールドメンバー",
+    "english": "Star Alliance Gold Member",
+    "category": "membership",
+    "subcategory": "star_alliance",
+    "source_page": "special_service_passenger"
+  },
+  {
+    "id": 85,
+    "abbreviation": "SAS",
+    "japanese": "スターアライアンスシルバーメンバー",
+    "english": "Star Alliance Silver Member",
+    "category": "membership",
+    "subcategory": "star_alliance",
+    "source_page": "special_service_passenger"
+  },
+  {
+    "id": 86,
+    "abbreviation": "NML",
+    "japanese": "正常",
+    "english": "Normal",
+    "category": "operation_handling",
+    "subcategory": "status",
+    "source_page": "special_service_passenger"
+  },
+  {
+    "id": 87,
+    "abbreviation": "O/B",
+    "japanese": "搭乗する",
+    "english": "On Board",
+    "category": "operation_handling",
+    "subcategory": "flight_phase",
+    "source_page": "special_service_passenger"
+  },
+  {
+    "id": 88,
+    "abbreviation": "OVSL",
+    "japanese": "オーバーセールス",
+    "english": "Over Sales",
+    "category": "operation_handling",
+    "subcategory": "irregular",
+    "source_page": "special_service_passenger"
+  },
+  {
+    "id": 89,
+    "abbreviation": "PAX・PSGR",
+    "japanese": "お客様",
+    "english": "Passenger",
+    "category": "passenger_service",
+    "subcategory": "general",
+    "source_page": "special_service_passenger"
+  },
+  {
+    "id": 90,
+    "abbreviation": "RWY・R/W",
+    "japanese": "滑走路",
+    "english": "Runway",
+    "category": "airport_operation",
+    "subcategory": "facility",
+    "source_page": "special_service_passenger"
+  },
+  {
+    "id": 91,
+    "abbreviation": "STBY",
+    "japanese": "待機",
+    "english": "Stand-by",
+    "category": "operation_handling",
+    "subcategory": "status",
+    "source_page": "special_service_passenger"
+  },
+  {
+    "id": 92,
+    "abbreviation": "T/O",
+    "japanese": "離陸",
+    "english": "Take off",
+    "category": "operation_handling",
+    "subcategory": "flight_phase",
+    "source_page": "special_service_passenger"
+  },
+  {
+    "id": 93,
+    "abbreviation": "XBAG",
+    "japanese": "超過手荷物",
+    "english": "EXCESS BAGGAGE",
+    "category": "passenger_service",
+    "subcategory": "baggage",
+    "source_page": "special_service_passenger"
+  }
+]</script>
+  <script>
+    const STORAGE_KEYS = {
+      wrongBook: 'aviation_quiz_wrong_book',
+      lastScore: 'aviation_quiz_last_score',
+      settings: 'aviation_quiz_settings',
+      recentCategory: 'aviation_quiz_recent_category'
+    };
+
+    const questions = JSON.parse(document.getElementById('questions-data').textContent);
+    const state = { mode: 'all', category: '', list: [], index: 0, input: '', submitted:false, isCorrect:false, correct:0 };
+
+    const $ = (id) => document.getElementById(id);
+    const pageIds = ['home','quiz','result','wrong','category'];
+    const showPage = (id) => pageIds.forEach(p => $(p).classList.toggle('active', p === id));
+
+    const read = (key, fallback) => { try { return JSON.parse(localStorage.getItem(key) || 'null') ?? fallback; } catch { return fallback; } };
+    const write = (key, value) => localStorage.setItem(key, JSON.stringify(value));
+
+    const normalizeAbbreviation = (v) => v.trim().replace(/\s+/g,' ').replace(/\s*\/\s*/g,'/').toUpperCase();
+    const splitOptions = (abbr) => abbr.split('・').map(normalizeAbbreviation).filter(Boolean);
+    const isCorrect = (input, answer) => splitOptions(answer).includes(normalizeAbbreviation(input));
+    const shuffle = (arr) => { const a=[...arr]; for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; };
+
+    const getWrongBook = () => read(STORAGE_KEYS.wrongBook, []);
+    const setWrongBook = (items) => write(STORAGE_KEYS.wrongBook, items);
+    const addWrong = (q) => { const cur=getWrongBook(); if(!cur.some(x=>x.id===q.id)) setWrongBook([q,...cur]); };
+
+    function renderHome() {
+      const last = read(STORAGE_KEYS.lastScore, null);
+      $('home').innerHTML = `
+        <div class="card">
+          <h1 class="title">航空用语略称练习</h1>
+          <div class="sub">日语 → 英文略称</div>
+        </div>
+        <div class="card hero">
+          <div class="small">轻量刷题模式</div>
+          <div style="font-size:27px;font-weight:900;margin-top:4px">开始今天的练习</div>
+          <div class="small" style="opacity:.95;margin-top:6px">共 ${questions.length} 题，随机打乱，手机优先。</div>
+        </div>
+        <div class="stack">
+          <button class="btn btn-primary" onclick="startQuiz('all')">开始刷题</button>
+          <button class="btn btn-light" onclick="openCategory()">分类练习</button>
+          <button class="btn btn-light" onclick="openWrongBook()">错题本</button>
+        </div>
+        ${last ? `<div class='card'><div class='small muted'>最近成绩</div><div class='row'><div class='score'>${last.accuracy}%</div><div class='muted'>${last.correct} / ${last.total}</div></div></div>` : ''}
+      `;
+      showPage('home');
+    }
+
+    function openCategory() {
+      const map = {};
+      questions.forEach(q => map[q.category]=(map[q.category]||0)+1);
+      const recent = localStorage.getItem(STORAGE_KEYS.recentCategory) || '';
+      $('category').innerHTML = `
+        <div class="card"><div class="row"><h2 style='margin:0'>分类练习</h2><button class='btn btn-light' style='width:auto;padding:8px 12px' onclick='renderHome()'>首页</button></div><div class='sub'>选择一个 category 开始</div></div>
+        <div class='stack'>
+          ${Object.entries(map).map(([k,v]) => `<button class='btn btn-light' style='text-align:left;${recent===k?'border-color:#2bbf6a;background:#effcf6':''}' onclick="startQuiz('category','${k}')"><div style='font-weight:800'>${k}</div><div class='small muted'>${v} 题</div></button>`).join('')}
+        </div>`;
+      showPage('category');
+    }
+
+    function openWrongBook() {
+      const items = getWrongBook();
+      $('wrong').innerHTML = `
+        <div class='card'><div class='row'><h2 style='margin:0'>错题本</h2><button class='btn btn-light' style='width:auto;padding:8px 12px' onclick='renderHome()'>首页</button></div><div class='sub'>共 ${items.length} 题</div></div>
+        <button class='btn btn-primary' ${items.length? '' : 'disabled style="opacity:.5"'} onclick="startQuiz('wrong')">只刷错题</button>
+        <button class='btn btn-danger' onclick='clearWrongBook()'>清空全部错题</button>
+        <div class='stack'>
+          ${items.map(q=>`<div class='list-item'><div class='small muted'>${q.category}</div><div style='font-weight:800'>${q.japanese}</div><div class='small'>正确答案：<b>${q.abbreviation}</b></div><button class='btn btn-light' style='width:auto;padding:6px 10px;margin-top:8px' onclick='removeWrong(${q.id})'>删除</button></div>`).join('')}
+        </div>`;
+      showPage('wrong');
+    }
+
+    function clearWrongBook() { setWrongBook([]); openWrongBook(); }
+    function removeWrong(id) { setWrongBook(getWrongBook().filter(x=>x.id!==id)); openWrongBook(); }
+
+    function startQuiz(mode='all', category='') {
+      let list = questions;
+      if (mode === 'category') {
+        list = questions.filter(q => q.category === category);
+        localStorage.setItem(STORAGE_KEYS.recentCategory, category);
+      }
+      if (mode === 'wrong') list = getWrongBook();
+      state.mode = mode; state.category = category; state.list = shuffle(list); state.index=0; state.input=''; state.submitted=false; state.isCorrect=false; state.correct=0;
+      if (!state.list.length) { openResult(); return; }
+      renderQuiz();
+    }
+
+    function submitQuiz() {
+      if (state.submitted) return;
+      const input = $('answer').value;
+      state.input = input;
+      state.submitted = true;
+      const q = state.list[state.index];
+      state.isCorrect = isCorrect(input, q.abbreviation);
+      if (state.isCorrect) state.correct += 1;
+      else addWrong(q);
+      renderQuiz();
+    }
+
+    function nextQuiz() {
+      if (!state.submitted) return;
+      if (state.index + 1 >= state.list.length) { openResult(); return; }
+      state.index += 1; state.input=''; state.submitted=false; state.isCorrect=false; renderQuiz();
+    }
+
+    function openResult() {
+      const total = state.list.length;
+      const correct = state.correct;
+      const wrong = total - correct;
+      const accuracy = total ? Math.round(correct / total * 100) : 0;
+      const payload = { total, correct, wrong, accuracy, mode: state.mode, category: state.category || undefined, finishedAt: new Date().toISOString() };
+      write(STORAGE_KEYS.lastScore, payload);
+
+      $('result').innerHTML = `
+        <div class='card'><div class='row'><h2 style='margin:0'>本轮结果</h2><button class='btn btn-light' style='width:auto;padding:8px 12px' onclick='renderHome()'>首页</button></div><div class='sub'>继续保持</div></div>
+        <div class='card'><div class='small muted'>本轮完成</div><div class='score'>${accuracy}%</div><div class='small muted'>正确率</div>
+          <div class='row' style='margin-top:10px'><div class='list-item' style='flex:1'><div class='small muted'>总题数</div><b>${total}</b></div><div class='list-item' style='flex:1;background:#e9fbef;border-color:#c5efd4'><div class='small'>正确</div><b>${correct}</b></div></div>
+          <div class='list-item' style='margin-top:8px;background:#ffeef0;border-color:#ffd3d8'><div class='small'>错误</div><b>${wrong}</b></div>
+        </div>
+        <div class='stack'>
+          <button class='btn btn-primary' onclick="startQuiz('all')">再来一轮</button>
+          <button class='btn btn-light' onclick='openWrongBook()'>去错题本</button>
+          <button class='btn btn-light' onclick='renderHome()'>回首页</button>
+        </div>
+      `;
+      showPage('result');
+    }
+
+    function renderQuiz() {
+      const q = state.list[state.index];
+      const current = state.index + 1;
+      const total = state.list.length;
+      const pct = total ? Math.round(current / total * 100) : 0;
+      $('quiz').innerHTML = `
+        <div class='card'><div class='row'><div><h2 style='margin:0'>刷题中</h2><div class='sub'>日语 → 英文略称</div></div><button class='btn btn-light' style='width:auto;padding:8px 12px' onclick='renderHome()'>首页</button></div></div>
+        <div class='card'><div class='row small muted'><span>进度 ${current} / ${total}</span><span>${pct}%</span></div><div class='progress' style='margin-top:8px'><div class='bar' style='width:${pct}%'></div></div></div>
+        <div class='card'><span class='pill'>${q.category}</span><div class='small muted' style='margin-top:8px'>请输入对应的英文略称</div><div class='jp'>${q.japanese}</div></div>
+        <div class='card'>
+          <input id='answer' class='input' placeholder='输入 abbreviation，例如 ETA' value='${state.input.replace(/'/g, '&#39;')}' ${state.submitted?'disabled':''} />
+          ${!state.submitted? `<button class='btn btn-primary' style='margin-top:10px' onclick='submitQuiz()'>提交</button>` : ''}
+          ${state.submitted ? `<div class='feedback ${state.isCorrect?'ok':'bad'}'><div style='font-weight:800'>${state.isCorrect?'答对了！':'答错了，再记一遍！'}</div><div>正确答案：${q.abbreviation}</div><div>英文全称：${q.english}</div></div><button class='btn btn-dark' style='margin-top:10px' onclick='nextQuiz()'>下一题</button>` : ''}
+        </div>
+      `;
+      const input = $('answer');
+      if (input && !state.submitted) {
+        input.focus();
+        input.addEventListener('keydown', (e) => { if (e.key === 'Enter') submitQuiz(); });
+      }
+      showPage('quiz');
+    }
+
+    renderHome();
+    window.startQuiz = startQuiz;
+    window.openCategory = openCategory;
+    window.openWrongBook = openWrongBook;
+    window.renderHome = renderHome;
+    window.submitQuiz = submitQuiz;
+    window.nextQuiz = nextQuiz;
+    window.clearWrongBook = clearWrongBook;
+    window.removeWrong = removeWrong;
+  </script>
+</body>
+</html>
