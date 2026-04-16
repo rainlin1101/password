@@ -1,0 +1,839 @@
+[
+  {
+    "id": 1,
+    "abbreviation": "ACL",
+    "japanese": "最大搭載許容重量",
+    "english": "Allowable Cabin Load",
+    "category": "operation_handling",
+    "subcategory": "load",
+    "source_page": "operation_handling"
+  },
+  {
+    "id": 2,
+    "abbreviation": "ARR・ARV",
+    "japanese": "到着",
+    "english": "Arrival",
+    "category": "operation_handling",
+    "subcategory": "flight_phase",
+    "source_page": "operation_handling"
+  },
+  {
+    "id": 3,
+    "abbreviation": "ATC",
+    "japanese": "航空交通管制",
+    "english": "Air Traffic Control",
+    "category": "airport_operation",
+    "subcategory": "control",
+    "source_page": "operation_handling"
+  },
+  {
+    "id": 4,
+    "abbreviation": "ATA",
+    "japanese": "実際の到着時刻",
+    "english": "Actual Time of Arrival",
+    "category": "operation_handling",
+    "subcategory": "schedule",
+    "source_page": "operation_handling"
+  },
+  {
+    "id": 5,
+    "abbreviation": "ATB",
+    "japanese": "離陸後の引き返し",
+    "english": "Air Turn Back",
+    "category": "operation_handling",
+    "subcategory": "irregular",
+    "source_page": "operation_handling"
+  },
+  {
+    "id": 6,
+    "abbreviation": "ATD",
+    "japanese": "実際の出発時刻",
+    "english": "Actual Time of Departure",
+    "category": "operation_handling",
+    "subcategory": "schedule",
+    "source_page": "operation_handling"
+  },
+  {
+    "id": 7,
+    "abbreviation": "BAG・BGE",
+    "japanese": "手荷物",
+    "english": "Baggage",
+    "category": "passenger_service",
+    "subcategory": "baggage",
+    "source_page": "operation_handling"
+  },
+  {
+    "id": 8,
+    "abbreviation": "BDG・BOD",
+    "japanese": "搭乗",
+    "english": "Boarding",
+    "category": "passenger_service",
+    "subcategory": "boarding",
+    "source_page": "operation_handling"
+  },
+  {
+    "id": 9,
+    "abbreviation": "BKG",
+    "japanese": "予約数",
+    "english": "Booking",
+    "category": "operation_handling",
+    "subcategory": "data",
+    "source_page": "operation_handling"
+  },
+  {
+    "id": 10,
+    "abbreviation": "B/I",
+    "japanese": "ブロックイン",
+    "english": "Block in",
+    "category": "operation_handling",
+    "subcategory": "flight_phase",
+    "source_page": "operation_handling"
+  },
+  {
+    "id": 11,
+    "abbreviation": "B/O",
+    "japanese": "ブロックアウト",
+    "english": "Block Out",
+    "category": "operation_handling",
+    "subcategory": "flight_phase",
+    "source_page": "operation_handling"
+  },
+  {
+    "id": 12,
+    "abbreviation": "BULK",
+    "japanese": "大型預入手荷物",
+    "english": "BULKY BAGGAGE",
+    "category": "passenger_service",
+    "subcategory": "baggage",
+    "source_page": "operation_handling"
+  },
+  {
+    "id": 13,
+    "abbreviation": "CHG",
+    "japanese": "変更",
+    "english": "Change",
+    "category": "operation_handling",
+    "subcategory": "general",
+    "source_page": "operation_handling"
+  },
+  {
+    "id": 14,
+    "abbreviation": "CKI・CKIN",
+    "japanese": "搭乗手続き",
+    "english": "Check In",
+    "category": "passenger_service",
+    "subcategory": "boarding",
+    "source_page": "operation_handling"
+  },
+  {
+    "id": 15,
+    "abbreviation": "CNL",
+    "japanese": "欠航",
+    "english": "Cancel",
+    "category": "operation_handling",
+    "subcategory": "irregular",
+    "source_page": "operation_handling"
+  },
+  {
+    "id": 16,
+    "abbreviation": "CONX",
+    "japanese": "接続",
+    "english": "Connection",
+    "category": "passenger_service",
+    "subcategory": "transit",
+    "source_page": "operation_handling"
+  },
+  {
+    "id": 17,
+    "abbreviation": "CBBG",
+    "japanese": "大型手荷物・機内持ち込み",
+    "english": "CABIN BAGGAGE",
+    "category": "passenger_service",
+    "subcategory": "baggage",
+    "source_page": "operation_handling"
+  },
+  {
+    "id": 18,
+    "abbreviation": "DEP",
+    "japanese": "出発",
+    "english": "Departure",
+    "category": "operation_handling",
+    "subcategory": "flight_phase",
+    "source_page": "operation_handling"
+  },
+  {
+    "id": 19,
+    "abbreviation": "DST",
+    "japanese": "目的地",
+    "english": "Destination",
+    "category": "operation_handling",
+    "subcategory": "schedule",
+    "source_page": "operation_handling"
+  },
+  {
+    "id": 20,
+    "abbreviation": "DLA・DLY",
+    "japanese": "遅延",
+    "english": "Delay",
+    "category": "operation_handling",
+    "subcategory": "irregular",
+    "source_page": "operation_handling"
+  },
+  {
+    "id": 21,
+    "abbreviation": "DIV・DVT",
+    "japanese": "他空港への臨時着陸",
+    "english": "Divert",
+    "category": "operation_handling",
+    "subcategory": "irregular",
+    "source_page": "operation_handling"
+  },
+  {
+    "id": 22,
+    "abbreviation": "ETA",
+    "japanese": "到着予定時刻",
+    "english": "Estimated Time of Arrival",
+    "category": "operation_handling",
+    "subcategory": "schedule",
+    "source_page": "operation_handling"
+  },
+  {
+    "id": 23,
+    "abbreviation": "ETD",
+    "japanese": "出発予定時刻",
+    "english": "Estimated Time of Departure",
+    "category": "operation_handling",
+    "subcategory": "schedule",
+    "source_page": "operation_handling"
+  },
+  {
+    "id": 24,
+    "abbreviation": "EQP",
+    "japanese": "出発準備",
+    "english": "Equipment",
+    "category": "operation_handling",
+    "subcategory": "maintenance",
+    "source_page": "operation_handling"
+  },
+  {
+    "id": 25,
+    "abbreviation": "EXST",
+    "japanese": "エクストラシート",
+    "english": "EXTRA SEAT",
+    "category": "passenger_service",
+    "subcategory": "seat",
+    "source_page": "operation_handling"
+  },
+  {
+    "id": 26,
+    "abbreviation": "FLT",
+    "japanese": "便",
+    "english": "Flight",
+    "category": "operation_handling",
+    "subcategory": "general",
+    "source_page": "operation_handling"
+  },
+  {
+    "id": 27,
+    "abbreviation": "GTB",
+    "japanese": "ブロックアウト後の引き返し",
+    "english": "Ground Turn Back",
+    "category": "operation_handling",
+    "subcategory": "irregular",
+    "source_page": "operation_handling"
+  },
+  {
+    "id": 28,
+    "abbreviation": "INFO",
+    "japanese": "案内",
+    "english": "Information",
+    "category": "passenger_service",
+    "subcategory": "general",
+    "source_page": "operation_handling"
+  },
+  {
+    "id": 29,
+    "abbreviation": "IRGL・IRR",
+    "japanese": "通常でないこと",
+    "english": "Irregularity",
+    "category": "operation_handling",
+    "subcategory": "irregular",
+    "source_page": "operation_handling"
+  },
+  {
+    "id": 30,
+    "abbreviation": "L/A",
+    "japanese": "使用機材到着遅れ",
+    "english": "Late Arrival",
+    "category": "operation_handling",
+    "subcategory": "irregular",
+    "source_page": "operation_handling"
+  },
+  {
+    "id": 31,
+    "abbreviation": "MCT",
+    "japanese": "最小接続時間",
+    "english": "Minimum Connecting Time",
+    "category": "operation_handling",
+    "subcategory": "schedule",
+    "source_page": "operation_handling"
+  },
+  {
+    "id": 32,
+    "abbreviation": "MX",
+    "japanese": "機材整備",
+    "english": "Maintenance Trouble",
+    "category": "operation_handling",
+    "subcategory": "maintenance",
+    "source_page": "operation_handling"
+  },
+  {
+    "id": 33,
+    "abbreviation": "NIL",
+    "japanese": "なし",
+    "english": "None",
+    "category": "operation_handling",
+    "subcategory": "general",
+    "source_page": "operation_handling"
+  },
+  {
+    "id": 34,
+    "abbreviation": "ARMD",
+    "japanese": "職務上の武器携帯者",
+    "english": "Armed Passenger",
+    "category": "special_assistance",
+    "subcategory": "security",
+    "source_page": "passenger_needs_assistance"
+  },
+  {
+    "id": 35,
+    "abbreviation": "AT",
+    "japanese": "付添者",
+    "english": "Attendant",
+    "category": "special_assistance",
+    "subcategory": "care",
+    "source_page": "passenger_needs_assistance"
+  },
+  {
+    "id": 36,
+    "abbreviation": "BLND",
+    "japanese": "視覚障がい旅客",
+    "english": "Blind Passengers",
+    "category": "special_assistance",
+    "subcategory": "disability",
+    "source_page": "passenger_needs_assistance"
+  },
+  {
+    "id": 37,
+    "abbreviation": "BSCT",
+    "japanese": "幼児用ベッド",
+    "english": "Bassinet",
+    "category": "special_assistance",
+    "subcategory": "infant",
+    "source_page": "passenger_needs_assistance"
+  },
+  {
+    "id": 38,
+    "abbreviation": "CHILD",
+    "japanese": "小児",
+    "english": "Child",
+    "category": "passenger_service",
+    "subcategory": "category",
+    "source_page": "passenger_needs_assistance"
+  },
+  {
+    "id": 39,
+    "abbreviation": "CHST",
+    "japanese": "チャイルドシート",
+    "english": "Child seat",
+    "category": "special_assistance",
+    "subcategory": "infant",
+    "source_page": "passenger_needs_assistance"
+  },
+  {
+    "id": 40,
+    "abbreviation": "DEAF",
+    "japanese": "聴覚障がい旅客",
+    "english": "Deaf Passengers",
+    "category": "special_assistance",
+    "subcategory": "disability",
+    "source_page": "passenger_needs_assistance"
+  },
+  {
+    "id": 41,
+    "abbreviation": "DEPA",
+    "japanese": "監視員付強制送還者",
+    "english": "Deportee-Accompanied by an Escort",
+    "category": "special_assistance",
+    "subcategory": "security",
+    "source_page": "passenger_needs_assistance"
+  },
+  {
+    "id": 42,
+    "abbreviation": "DEPU",
+    "japanese": "監視員なし強制送還者",
+    "english": "Deportee-Unaccompanied",
+    "category": "special_assistance",
+    "subcategory": "security",
+    "source_page": "passenger_needs_assistance"
+  },
+  {
+    "id": 43,
+    "abbreviation": "DPNA",
+    "japanese": "知的障がい旅客",
+    "english": "Disabled passengers w/ intellectual disability",
+    "category": "special_assistance",
+    "subcategory": "disability",
+    "source_page": "passenger_needs_assistance"
+  },
+  {
+    "id": 44,
+    "abbreviation": "EXMO(E)",
+    "japanese": "妊婦",
+    "english": "Expectant mother",
+    "category": "special_assistance",
+    "subcategory": "medical",
+    "source_page": "passenger_needs_assistance"
+  },
+  {
+    "id": 45,
+    "abbreviation": "ESAN",
+    "japanese": "アラート犬・サイキアトリックサービス犬",
+    "english": "Emotional Support Animal",
+    "category": "special_assistance",
+    "subcategory": "animal",
+    "source_page": "passenger_needs_assistance"
+  },
+  {
+    "id": 46,
+    "abbreviation": "INAD",
+    "japanese": "上陸禁止者",
+    "english": "Inadmissible Passengers",
+    "category": "special_assistance",
+    "subcategory": "security",
+    "source_page": "passenger_needs_assistance"
+  },
+  {
+    "id": 47,
+    "abbreviation": "INFT",
+    "japanese": "幼児",
+    "english": "Infant",
+    "category": "passenger_service",
+    "subcategory": "category",
+    "source_page": "passenger_needs_assistance"
+  },
+  {
+    "id": 48,
+    "abbreviation": "MAAA",
+    "japanese": "アテンドサービス（到着地）",
+    "english": "Attend Service Arrival",
+    "category": "special_assistance",
+    "subcategory": "care",
+    "source_page": "passenger_needs_assistance"
+  },
+  {
+    "id": 49,
+    "abbreviation": "MAAD",
+    "japanese": "アテンドサービス（出発地）",
+    "english": "Attend Service Departure",
+    "category": "special_assistance",
+    "subcategory": "care",
+    "source_page": "passenger_needs_assistance"
+  },
+  {
+    "id": 50,
+    "abbreviation": "MAAT",
+    "japanese": "アテンドサービス（乗継地）",
+    "english": "Attend Service Transit",
+    "category": "special_assistance",
+    "subcategory": "care",
+    "source_page": "passenger_needs_assistance"
+  },
+  {
+    "id": 51,
+    "abbreviation": "MEDA",
+    "japanese": "傷病旅客",
+    "english": "Medical Case",
+    "category": "special_assistance",
+    "subcategory": "medical",
+    "source_page": "passenger_needs_assistance"
+  },
+  {
+    "id": 52,
+    "abbreviation": "PRIS",
+    "japanese": "被疑者",
+    "english": "Person in Lawful Custody",
+    "category": "special_assistance",
+    "subcategory": "security",
+    "source_page": "passenger_needs_assistance"
+  },
+  {
+    "id": 53,
+    "abbreviation": "SVAN",
+    "japanese": "盲導犬・聴導犬・介助犬",
+    "english": "Service Animal",
+    "category": "special_assistance",
+    "subcategory": "animal",
+    "source_page": "passenger_needs_assistance"
+  },
+  {
+    "id": 54,
+    "abbreviation": "STCR",
+    "japanese": "ストレッチャー旅客",
+    "english": "Stretcher Passengers",
+    "category": "special_assistance",
+    "subcategory": "medical",
+    "source_page": "passenger_needs_assistance"
+  },
+  {
+    "id": 55,
+    "abbreviation": "TWOV",
+    "japanese": "無査証通過",
+    "english": "Transit without Visa",
+    "category": "special_assistance",
+    "subcategory": "security",
+    "source_page": "passenger_needs_assistance"
+  },
+  {
+    "id": 56,
+    "abbreviation": "UM・UMNR",
+    "japanese": "単独搭乗する小児",
+    "english": "Unaccompanied minor",
+    "category": "special_assistance",
+    "subcategory": "care",
+    "source_page": "passenger_needs_assistance"
+  },
+  {
+    "id": 57,
+    "abbreviation": "WCHC",
+    "japanese": "歩行障がい旅客（車椅子固定）",
+    "english": "Wheelchair for Cabin Seat",
+    "category": "special_assistance",
+    "subcategory": "wheelchair",
+    "source_page": "passenger_needs_assistance"
+  },
+  {
+    "id": 58,
+    "abbreviation": "WCHS",
+    "japanese": "歩行困難旅客（階段昇降不可）",
+    "english": "Wheelchair for Steps",
+    "category": "special_assistance",
+    "subcategory": "wheelchair",
+    "source_page": "passenger_needs_assistance"
+  },
+  {
+    "id": 59,
+    "abbreviation": "WCHR",
+    "japanese": "軽度の歩行困難旅客",
+    "english": "Wheelchair for Ramp",
+    "category": "special_assistance",
+    "subcategory": "wheelchair",
+    "source_page": "passenger_needs_assistance"
+  },
+  {
+    "id": 60,
+    "abbreviation": "WCOB",
+    "japanese": "機内貸し出し車椅子",
+    "english": "ON-BOARD WHEELCHAIR",
+    "category": "special_assistance",
+    "subcategory": "wheelchair",
+    "source_page": "passenger_needs_assistance"
+  },
+  {
+    "id": 61,
+    "abbreviation": "WCBD",
+    "japanese": "電動車椅子（ドライバッテリー）",
+    "english": "WHEELCHAIR DRY CELL BATTERY",
+    "category": "special_assistance",
+    "subcategory": "wheelchair",
+    "source_page": "passenger_needs_assistance"
+  },
+  {
+    "id": 62,
+    "abbreviation": "WCBW",
+    "japanese": "電動車椅子（ウェットバッテリー）",
+    "english": "WHEELCHAIR WET BATTERY",
+    "category": "special_assistance",
+    "subcategory": "wheelchair",
+    "source_page": "passenger_needs_assistance"
+  },
+  {
+    "id": 63,
+    "abbreviation": "WCLB",
+    "japanese": "電動車椅子（リチウムバッテリー）",
+    "english": "WHEELCHAIR LITHIUM ION BATTERY",
+    "category": "special_assistance",
+    "subcategory": "wheelchair",
+    "source_page": "passenger_needs_assistance"
+  },
+  {
+    "id": 64,
+    "abbreviation": "WCMP",
+    "japanese": "手动式車椅子",
+    "english": "WHEELCHAIR MANUAL POWER",
+    "category": "special_assistance",
+    "subcategory": "wheelchair",
+    "source_page": "passenger_needs_assistance"
+  },
+  {
+    "id": 65,
+    "abbreviation": "APO",
+    "japanese": "空港支店",
+    "english": "Airport Office",
+    "category": "airport_operation",
+    "subcategory": "office",
+    "source_page": "airport_terms"
+  },
+  {
+    "id": 66,
+    "abbreviation": "ATML",
+    "japanese": "28品目アレルゲン対応食",
+    "english": "28 ALLERGEN FREE MEAL",
+    "category": "passenger_service",
+    "subcategory": "meal",
+    "source_page": "airport_terms"
+  },
+  {
+    "id": 67,
+    "abbreviation": "BBML",
+    "japanese": "ベビーミール",
+    "english": "BABY MEAL",
+    "category": "passenger_service",
+    "subcategory": "meal",
+    "source_page": "airport_terms"
+  },
+  {
+    "id": 68,
+    "abbreviation": "CHML",
+    "japanese": "チャイルドミール",
+    "english": "CHILD MEAL",
+    "category": "passenger_service",
+    "subcategory": "meal",
+    "source_page": "airport_terms"
+  },
+  {
+    "id": 69,
+    "abbreviation": "MOML",
+    "japanese": "イスラム教徒ミール",
+    "english": "MOSLEM MEAL",
+    "category": "passenger_service",
+    "subcategory": "meal",
+    "source_page": "airport_terms"
+  },
+  {
+    "id": 70,
+    "abbreviation": "SPML",
+    "japanese": "特別食",
+    "english": "SPECIAL MEAL",
+    "category": "passenger_service",
+    "subcategory": "meal",
+    "source_page": "airport_terms"
+  },
+  {
+    "id": 71,
+    "abbreviation": "AVIH",
+    "japanese": "受託手荷物扱いのペット",
+    "english": "ANIMAL IN HOLD",
+    "category": "passenger_service",
+    "subcategory": "baggage",
+    "source_page": "airport_terms"
+  },
+  {
+    "id": 72,
+    "abbreviation": "CA",
+    "japanese": "客室乗務員",
+    "english": "Cabin Attendant",
+    "category": "operation_handling",
+    "subcategory": "staff",
+    "source_page": "airport_terms"
+  },
+  {
+    "id": 73,
+    "abbreviation": "CAB",
+    "japanese": "国土交通省航空局",
+    "english": "Civil Aviation Bureau",
+    "category": "airport_operation",
+    "subcategory": "government",
+    "source_page": "airport_terms"
+  },
+  {
+    "id": 74,
+    "abbreviation": "CIQ",
+    "japanese": "税関・出入国審査・検疫",
+    "english": "Customs, Immigration, Quarantine",
+    "category": "security_immigration",
+    "subcategory": "international",
+    "source_page": "airport_terms"
+  },
+  {
+    "id": 75,
+    "abbreviation": "CREW",
+    "japanese": "乗員",
+    "english": "Crew",
+    "category": "operation_handling",
+    "subcategory": "staff",
+    "source_page": "airport_terms"
+  },
+  {
+    "id": 76,
+    "abbreviation": "CTO",
+    "japanese": "市内支店",
+    "english": "City Office",
+    "category": "airport_operation",
+    "subcategory": "office",
+    "source_page": "airport_terms"
+  },
+  {
+    "id": 77,
+    "abbreviation": "PBB",
+    "japanese": "ボーディング・ブリッジ",
+    "english": "Passenger Boarding Bridge",
+    "category": "airport_operation",
+    "subcategory": "facility",
+    "source_page": "airport_terms"
+  },
+  {
+    "id": 78,
+    "abbreviation": "PBL",
+    "japanese": "歩行障害者用搭乗リフト",
+    "english": "Passenger Boarding Lift",
+    "category": "airport_operation",
+    "subcategory": "facility",
+    "source_page": "airport_terms"
+  },
+  {
+    "id": 79,
+    "abbreviation": "RF・RFD",
+    "japanese": "払い戻し",
+    "english": "Refund",
+    "category": "operation_handling",
+    "subcategory": "financial",
+    "source_page": "airport_terms"
+  },
+  {
+    "id": 80,
+    "abbreviation": "DIA",
+    "japanese": "ダイヤモンドサービスメンバー",
+    "english": "Diamond Service Member",
+    "category": "membership",
+    "subcategory": "ana_premium",
+    "source_page": "special_service_passenger"
+  },
+  {
+    "id": 81,
+    "abbreviation": "PLT",
+    "japanese": "プラチナサービスメンバー",
+    "english": "Platinum Service Member",
+    "category": "membership",
+    "subcategory": "ana_premium",
+    "source_page": "special_service_passenger"
+  },
+  {
+    "id": 82,
+    "abbreviation": "BRZ",
+    "japanese": "ブロンズサービスメンバー",
+    "english": "Bronze Service Member",
+    "category": "membership",
+    "subcategory": "ana_premium",
+    "source_page": "special_service_passenger"
+  },
+  {
+    "id": 83,
+    "abbreviation": "SFC",
+    "japanese": "スーパーフライヤーズカードメンバー",
+    "english": "Super Flyers Card Member",
+    "category": "membership",
+    "subcategory": "ana_premium",
+    "source_page": "special_service_passenger"
+  },
+  {
+    "id": 84,
+    "abbreviation": "SAG",
+    "japanese": "スターアライアンスゴールドメンバー",
+    "english": "Star Alliance Gold Member",
+    "category": "membership",
+    "subcategory": "star_alliance",
+    "source_page": "special_service_passenger"
+  },
+  {
+    "id": 85,
+    "abbreviation": "SAS",
+    "japanese": "スターアライアンスシルバーメンバー",
+    "english": "Star Alliance Silver Member",
+    "category": "membership",
+    "subcategory": "star_alliance",
+    "source_page": "special_service_passenger"
+  },
+  {
+    "id": 86,
+    "abbreviation": "NML",
+    "japanese": "正常",
+    "english": "Normal",
+    "category": "operation_handling",
+    "subcategory": "status",
+    "source_page": "special_service_passenger"
+  },
+  {
+    "id": 87,
+    "abbreviation": "O/B",
+    "japanese": "搭乗する",
+    "english": "On Board",
+    "category": "operation_handling",
+    "subcategory": "flight_phase",
+    "source_page": "special_service_passenger"
+  },
+  {
+    "id": 88,
+    "abbreviation": "OVSL",
+    "japanese": "オーバーセールス",
+    "english": "Over Sales",
+    "category": "operation_handling",
+    "subcategory": "irregular",
+    "source_page": "special_service_passenger"
+  },
+  {
+    "id": 89,
+    "abbreviation": "PAX・PSGR",
+    "japanese": "お客様",
+    "english": "Passenger",
+    "category": "passenger_service",
+    "subcategory": "general",
+    "source_page": "special_service_passenger"
+  },
+  {
+    "id": 90,
+    "abbreviation": "RWY・R/W",
+    "japanese": "滑走路",
+    "english": "Runway",
+    "category": "airport_operation",
+    "subcategory": "facility",
+    "source_page": "special_service_passenger"
+  },
+  {
+    "id": 91,
+    "abbreviation": "STBY",
+    "japanese": "待機",
+    "english": "Stand-by",
+    "category": "operation_handling",
+    "subcategory": "status",
+    "source_page": "special_service_passenger"
+  },
+  {
+    "id": 92,
+    "abbreviation": "T/O",
+    "japanese": "離陸",
+    "english": "Take off",
+    "category": "operation_handling",
+    "subcategory": "flight_phase",
+    "source_page": "special_service_passenger"
+  },
+  {
+    "id": 93,
+    "abbreviation": "XBAG",
+    "japanese": "超過手荷物",
+    "english": "EXCESS BAGGAGE",
+    "category": "passenger_service",
+    "subcategory": "baggage",
+    "source_page": "special_service_passenger"
+  }
+]
