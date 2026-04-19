@@ -334,7 +334,7 @@
   },
   {
     "id": 38,
-    "abbreviation": "CHILD",
+    "abbreviation": "CHLD",
     "japanese": "小児",
     "english": "Child",
     "category": "passenger_service",
@@ -388,7 +388,7 @@
   },
   {
     "id": 44,
-    "abbreviation": "EXMO(E)",
+    "abbreviation": "EXMO",
     "japanese": "妊婦",
     "english": "Expectant mother",
     "category": "special_assistance",
@@ -506,7 +506,7 @@
   {
     "id": 57,
     "abbreviation": "WCHC",
-    "japanese": "歩行障がい旅客（車椅子固定）",
+    "japanese": "歩行障がい旅客",
     "english": "Wheelchair for Cabin Seat",
     "category": "special_assistance",
     "subcategory": "wheelchair",
@@ -515,7 +515,7 @@
   {
     "id": 58,
     "abbreviation": "WCHS",
-    "japanese": "歩行困難旅客（階段昇降不可）",
+    "japanese": "歩行困難旅客",
     "english": "Wheelchair for Steps",
     "category": "special_assistance",
     "subcategory": "wheelchair",
@@ -837,3 +837,5 @@
     "source_page": "special_service_passenger"
   }
 ]
+
+
